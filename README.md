@@ -14,23 +14,6 @@ La responsabilidad de MS3 es mantener su propia base de datos MongoDB para mesas
 - Docker + Docker Compose
 - Swagger UI
 
-## Arquitectura
-
-```text
-Cliente / Frontend
-       |
-       v
- MS3 - Node.js :8003
-    |          \
-    |           \ GET /clientes/{id}
-    v            v
- MongoDB       MS1 :8000
- reservas      Clientes
- mesas         MySQL
-```
-
-MS3 **no accede a la base de datos de MS1**. La validación del cliente se hace mediante la API REST de MS1.
-
 ## Estructura
 
 ```text
@@ -267,14 +250,4 @@ npm test
 ```
 
 Se incluyen pruebas unitarias de validación de fechas, horas y detección de cruces.
-
-## Para el Hito 1
-
-Con este repositorio pueden demostrar:
-
-1. MS3 levantado en un contenedor.
-2. MongoDB conectado como BD propia.
-3. CRUD básico de mesas y reservas.
-4. Consulta REST desde MS3 hacia MS1 al crear una reserva.
-5. Swagger en `/docs` para probar los endpoints rápidamente.
 
